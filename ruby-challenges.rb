@@ -16,7 +16,7 @@ letter_c = 'c'
 # output: an array of all the words containing that particular letter
 
 # psuedo:
-# Create a method called return_words_only_include_letter and pass the array of strings and the single letter. using .select, pass each array through using PIPES! and use .include? and then the single letter. This will check if values of the array contain the single letter. .select will then natively return a new array with only the values that contain the single letter that was was used.
+# Create a method called return_words_only_include_letter and pass the array of strings and the single letter. using .select, pass each array through using PIPES! and use .include? and then the single letter. This will check if values of the array contain the single letter. .select will then natively return a new array with only the values that contain the single letter that was used.
 
 
 def return_words_only_include_letter (array, letter)
@@ -36,7 +36,7 @@ p return_words_only_include_letter(beverages_array, letter_c)
 # output: one array with all the hash values at their own index and in alphabetical order
 
 # psuedo:
-# Create a method called sort_that_hash and pass the given hash through as the parameter. Use .values which will return a new array containing only the values of the hash. then add .flatten which then then also return a new array but a one-dimensional array with all the values in a single array. Since the values had previously been removed from the hash and placed into a new array, there is no need to go to a deeper level of recursion to flatten this array. Then add .sort to natively to sort alphabetically and in assending order.  
+# Create a method called sort_that_hash and pass the given hash through as the parameter. Use .values which will return a new array containing only the values of the hash. add .flatten which then also returns a new array but a one-dimensional array with all the values in a single array. Since the values had previously been removed from the hash and placed into a new array, there is no need to go to a deeper level of recursion to flatten this array. Then add .sort to natively to sort alphabetically and in ascending order.  
 
 us_states = { northwest: ['Washington', 'Oregon', 'Idaho'], southwest: ['California', 'Arizona', 'Nevada'], notheast: ['Maine', 'New Hampshire', 'Rhode Island'] }
 # Expected output: ['Arizona', 'California', 'Idaho', 'Maine', 'Nevada', 'New Hampshire', 'Oregon', 'Rhode Island', 'Washington'] 
@@ -62,10 +62,11 @@ p sort_that_hash(us_states)
 
 # psuedo:
 # Create a class called Bike
-# Use initialize method, only pass model through since the wheels and current_speed have static values of 2 and 0.
-# Craete the bike_info method and implisently return "The #{@model} bike has #{@wheels} wheels and is going #{@current_speed} mph"
+# Use the initialize method, only pass the model through since the wheels and current_speed have static values of 2 and 0.
+# Create the bike_info method and implicitly return "The #{@model} bike has #{@wheels} wheels and is going #{@current_speed} mph"
 # initialize trek = Bike.new('Trek')
 # Then p (print) trek.bike_info
+
 
 class Bike
     def initialize(model)

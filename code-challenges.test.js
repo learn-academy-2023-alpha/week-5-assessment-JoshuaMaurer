@@ -28,7 +28,7 @@
 // output: a string with the following input letters changed to numbers. "a" to 4, "e" to 3, "i" to 1, and "o" to 0
 
 // pseudo:
-// Create a function called superSecretCodingMachine that takes a string as a parameter. Use .replaceAll() to replace all instances of the searched letter with the regex search pattern. Use /g to search all occurences of the letter in the string and /i to be case insensitive, then use a comma to seperate the search pattern from the replacement value and add corisponding replcecment value. Repeat this .replaceALL pattern three additional times, changing to the required corrisponding searched letter and it's number replacement. Return in one line off the single passed through string parameter. 
+// Create a function called superSecretCodingMachine that takes a string as a parameter. Use .replaceAll() to replace all instances of the searched letter with the regex search pattern. Use /g to search all occurences of the letter in the string and /i to be case insensitive, then use a comma to separate the search pattern from the replacement value and add corresponding replacement value. Repeat this .replaceALL pattern three additional times, changing to the required corresponding searched letter and its number replacement. Return in one line off the single passed through string parameter.
 
 // test:
 describe("superSecretCodingMachine", () => {
@@ -104,21 +104,22 @@ describe("superSecretCodingMachine", () => {
 
 // b) Create the function that makes the test pass.
 
-// Comment: The below .replaceAll's is where my head initially went. I liked the regex and how overall the code was relatively short but I didn't like how I had to repeat .replaceAll multiple times, though I had to due to the contraints of regex only being only able to pass one replacement value per expression. With some addidional research, I was able to get the following two functions using an object to work ALMOST correctly. They work however I ran into an issue where eventhough I was using the /i to catch both upper and lower case letterA, the "E" in the secretCodeWord3 was returning undefined. I am still tring to figure out why but I was able to add an additional key:value pair to the object as a work around so that it returns as required. I chose this route becuase I thought it was a cleaner looking fix as opposed to adding a .toUpperCase or .toLowerCase. I am going to figure out the issue this week as I have extra time.
+// Comment: The below .replaceAll's is where my head initially went. I liked the regex and how overall the code was relatively short but I didn't like how I had to repeat .replaceAll multiple times, though I had to due to the constraints of regex only being only able to pass one replacement value per expression. With some additional research, I was able to get the following two functions using an object to work ALMOST correctly. They work however I ran into an issue where even though I was using the /i to catch both upper and lowercase letterA, the "E" in the secretCodeWord3 was returning undefined. I am still trying to figure out why but I was able to add an additional key:value pair to the object as a work around so that it returns as required. I chose this route because I thought it was a cleaner looking fix as opposed to adding a .toUpperCase or .toLowerCase. I am going to figure out the issue this week as I have extra time.
 
 // const superSecretCodingMachine = (string) => {
 //     return string.replaceAll(/a/gi, 4).replaceAll(/e/gi, 3).replaceAll(/i/gi, 1).replaceAll(/o/gi, 0)
 // }
 
 // const superSecretCodingMachine = (string) => {
-//     // regex = /a|e|i|o/gi;
+//     regex = /a|e|E|i|o|u/gi;
 //     const superSecretCode = {
 //         "a": 4,
 //         "e": 3,
+//         "E": 3,
 //         "i": 1,
 //         "o": 0,
 //       };
-//     return string.replaceAll(/a|e|i|o/ig, (matched) => superSecretCode[matched])
+//     return string.replaceAll(regex, (matched) => superSecretCode[matched])
 // }
 
 const superSecretCodingMachine = (string) => {
@@ -130,7 +131,7 @@ const superSecretCodingMachine = (string) => {
         "o": 0,
         "u": 6,
       };
-    return string.replaceAll(/a|e|E|i|o|u/ig, (matched) => superSecretCode[matched])
+    return string.replaceAll(/a|e|E|i|o|u/gi, (matched) => superSecretCode[matched])
 }
 
 // --------------------2) Create a function that takes in an array of words and a single letter and returns an array of all the words containing that particular letter.
@@ -151,7 +152,8 @@ const superSecretCodingMachine = (string) => {
 // output: a single array containing only the words that contain the input single letter
 
 // pseudo: Create a function called valueContainsALetter. Pass an array of strings and a single letter string as parameters. Use 
-// .filter to create a shallow copy of the original array. Inside .filter, pass the value, then use value.toLowerCase to account for any capitol letters. After the parens of the .toLowerCase() use .includes and pass the letter that is to be filtered.
+// .filter to create a shallow copy of the original array. Inside .filter, pass the value, then use value.toLowerCase to account for any capital letters. After the parens of the .toLowerCase() use .includes and pass the letter that is to be filtered.
+
 
 test:
 describe("valueContainsALetter", () => {
@@ -250,7 +252,7 @@ const valueContainsALetter = (array, letter) => {
 // output: true if the array contains exactly one pair and one three of a kind. False if it does not.
 
 // pseudo:
-// Create a function called checkIfTheHouseIsFull and pass the array containing 5 numbers as the parameter. Create a let variable inside of the function called arr and have it equal the original array that has been sorted using .sort() that will natively return the array values in assending order. Using a conditional if/else statement, check the sorted values index location against each other using strict = (===). If the values of the 0 & 1 as well as the values of 2, 3, & 4 locations match, OR (||), the values of the 0, 1, & 2 as well as the values of 3 & 4 match, return true. Else return false.
+// Create a function called checkIfTheHouseIsFull and pass the array containing 5 numbers as the parameter. Create a let variable inside of the function called arr and have it equal the original array that has been sorted using .sort() that will natively return the array values in ascending order. Using a conditional if/else statement, check the sorted values index location against each other using strict = (===). If the values of the 0 & 1 as well as the values of 2, 3, & 4 locations match, OR (||), the values of the 0, 1, & 2 as well as the values of 3 & 4 match, return true. Else return false.
 
 // test:
 describe("checkIfTheHouseIsFull", () => {
